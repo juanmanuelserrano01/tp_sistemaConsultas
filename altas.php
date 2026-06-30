@@ -16,7 +16,7 @@ if (isset($_POST['registrar'])) {
         die('Error, las contraseñas ingresadas no coinciden');
     }
 
-    if ($tipo_doc !== 'DNI' || $tipo_doc !== 'PASAPORTE') {
+    if ($tipo_doc !== 'DNI' && $tipo_doc !== 'PASAPORTE') {
         die('Error, el tipo de documento ingresado no es correcto');
     }
 

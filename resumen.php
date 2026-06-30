@@ -71,9 +71,11 @@ $res_historial = $stmt_hist->get_result();
             <div>
                 <p class="text-xs text-gray-400 font-semibold uppercase">Tarjeta de Crédito</p>
                 <h2 class="text-xl font-bold text-gray-800">
-                    <?php echo htmlspecialchars($res_tarjeta['banco_emisor']); ?> Progra3card</h2>
+                    <?php echo htmlspecialchars($res_tarjeta['banco_emisor']); ?> Progra3card
+                </h2>
                 <p class="text-sm text-gray-600 mt-1">Nro. Tarjeta: **** **** ****
-                    <?php echo substr($res_tarjeta['numero_tarjeta'], -4); ?></p>
+                    <?php echo substr($res_tarjeta['numero_tarjeta'], -4); ?>
+                </p>
                 <p class="text-xs text-gray-500">Nro. Cuenta: <?php echo $res_tarjeta['num_cuenta']; ?></p>
             </div>
             <div class="mt-4 sm:mt-0 text-right">
@@ -97,12 +99,14 @@ $res_historial = $stmt_hist->get_result();
                         <div class="border-r border-gray-100 last:border-0">
                             <p class="text-xs font-semibold text-gray-400 uppercase">Período</p>
                             <p class="text-lg font-bold text-gray-700 mt-1">
-                                <?php echo htmlspecialchars($res_tarjeta['periodo']); ?></p>
+                                <?php echo htmlspecialchars($res_tarjeta['periodo']); ?>
+                            </p>
                         </div>
                         <div class="border-r border-gray-100 last:border-0">
                             <p class="text-xs font-semibold text-gray-400 uppercase">Vencimiento</p>
                             <p class="text-lg font-bold text-red-600 mt-1">
-                                <?php echo date("d/m/Y", strtotime($res_tarjeta['fecha_vencimiento'])); ?></p>
+                                <?php echo date("d/m/Y", strtotime($res_tarjeta['fecha_vencimiento'])); ?>
+                            </p>
                         </div>
                         <div class="border-r border-gray-100 last:border-0">
                             <p class="text-xs font-semibold text-gray-400 uppercase">Total a Pagar</p>
@@ -142,7 +146,8 @@ $res_historial = $stmt_hist->get_result();
                             <?php while ($hist = $res_historial->fetch_assoc()): ?>
                                 <tr class="hover:bg-gray-50 transition">
                                     <td class="p-4 font-semibold text-gray-700">
-                                        <?php echo htmlspecialchars($hist['periodo']); ?></td>
+                                        <?php echo htmlspecialchars($hist['periodo']); ?>
+                                    </td>
                                     <td class="p-4"><?php echo date("d/m/Y", strtotime($hist['fecha_vencimiento'])); ?></td>
                                     <td class="p-4 font-bold text-gray-800">
                                         $<?php echo number_format($hist['total_a_pagar'], 2, ',', '.'); ?></td>
